@@ -46,6 +46,6 @@
 
 <style>
     .textarea {
-        min-height: 3em;
+        min-height: 6em;
     }
 </style>
