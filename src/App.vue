@@ -3,6 +3,8 @@
         <app-progress :current="quoteCount" :max="maxQuotes"></app-progress>
         <hr>
         <app-add-quote></app-add-quote>
+        <hr>
+        <app-quotes :quotes="quotes"></app-quotes>
     </div>
 </template>
 
@@ -10,11 +12,13 @@
     import {bus} from './main';
     import AppProgress from './components/Progress.vue';
     import AppAddQuote from './components/AddQuote.vue';
+    import AppQuotes from './components/Quotes.vue';
 
     export default {
         components: {
             AppProgress,
-            AppAddQuote
+            AppAddQuote,
+            AppQuotes
         },
         data: function () {
             return {
@@ -27,6 +31,9 @@
                 if (this.quotes.length < this.maxQuotes) {
                     this.quotes.push(quote);
                 }
+            },
+            deleteQuote(quote){
+                this.quotes.splice(this.quotes.indexOf(quote), 1);
             }
         },
         computed: {
@@ -36,6 +43,7 @@
         },
         mounted() {
             bus.$on('quoteAdded', this.addQuote);
+            bus.$on('quoteDeleted', this.deleteQuote);
         }
     }
 </script>
