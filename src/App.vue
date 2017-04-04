@@ -42,4 +42,9 @@
 
 <style lang="sass">
     @import '../node_modules/bulma/bulma'
+
+    #app
+        max-width: 500px
+        padding: 2rem 1rem
+        margin: 0 auto
 </style>
