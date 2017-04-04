@@ -19,3 +19,9 @@
         }
     };
 </script>
+
+<style>
+    progress[value]::-webkit-progress-value {
+        transition: all .3s ease-out;
+    }
+</style>
