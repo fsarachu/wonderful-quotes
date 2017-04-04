@@ -3,7 +3,8 @@
         <div class="field">
             <label class="label">Add your quote:</label>
             <p class="control">
-                <textarea v-model="quote" ref="textarea" class="textarea" placeholder="Some inspiring quote..." autofocus></textarea>
+                <textarea v-model="quote" ref="textarea" class="textarea" placeholder="Some inspiring quote..."
+                          autofocus></textarea>
             </p>
         </div>
         <div class="field is-grouped">
@@ -28,13 +29,17 @@
         },
         methods: {
             addQuote() {
-                bus.$emit('quoteAdded', this.quote);
-                this.clearQuote();
-                this.$refs.textarea.focus();
+                bus.$emit('addQuote', this.quote);
             },
             clearQuote() {
                 this.quote = '';
             }
+        },
+        mounted() {
+            bus.$on('quoteAdded', () => {
+                this.clearQuote();
+                this.$refs.textarea.focus();
+            });
         }
     };
 </script>

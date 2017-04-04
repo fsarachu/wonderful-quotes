@@ -30,6 +30,7 @@
             addQuote(quote) {
                 if (this.quotes.length < this.maxQuotes) {
                     this.quotes.push(quote);
+                    bus.$emit('quoteAdded');
                 }
             },
             deleteQuote(quote){
@@ -42,7 +43,7 @@
             }
         },
         mounted() {
-            bus.$on('quoteAdded', this.addQuote);
+            bus.$on('addQuote', this.addQuote);
             bus.$on('quoteDeleted', this.deleteQuote);
         }
     }
