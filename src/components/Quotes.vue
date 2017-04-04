@@ -1,6 +1,6 @@
 <template>
     <div v-if="quotes.length" class="content">
-        <app-quote v-for="quote in quotes" :key="quote.id" @remove="removeQuote(quote)">{{ quote }}</app-quote>
+        <app-quote v-for="quote in quotes" :key="quote.id" @click.native="removeQuote(quote)">{{ quote }}</app-quote>
     </div>
 </template>
 

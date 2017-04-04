@@ -1,5 +1,5 @@
 <template>
-    <blockquote @click="$emit('remove')">
+    <blockquote>
         <slot></slot>
     </blockquote>
 </template>
