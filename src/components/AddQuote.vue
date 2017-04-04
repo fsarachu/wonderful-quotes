@@ -43,3 +43,9 @@
         }
     };
 </script>
+
+<style>
+    .textarea {
+        min-height: 3em;
+    }
+</style>
